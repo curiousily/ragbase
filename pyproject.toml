@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "ragbase"
+version = "0.1.0"
+description = ""
+authors = ["Venelin Valkov <venelin@curiousily.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+langchain-community = "^0.2.6"
+flashrank = "^0.2.8"
+qdrant-client = "^1.10.1"
+pypdfium2 = "^4.30.0"
+fastembed = "^0.3.3"
+langchain-experimental = "^0.0.62"
+langchain-qdrant = "^0.1.1"
+streamlit = "^1.36.0"
+python-dotenv = "^1.0.1"
+langchain-groq = "^0.1.6"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.1"
+jupyterlab = "^4.2.3"
+watchdog = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
