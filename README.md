@@ -6,6 +6,10 @@
   <img src="https://raw.githubusercontent.com/curiousily/ragbase/master/.github/ui.png">
 </a>
 
+## Demo
+
+Check out the [RagBase on Streamlit Cloud](https://ragbase.streamlit.app/). Runs with Groq API.
+
 ## Installation
 
 Clone the repo:
