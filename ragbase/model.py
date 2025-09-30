@@ -1,5 +1,6 @@
 from langchain_community.chat_models import ChatOllama
-from langchain_community.document_compressors.flashrank_rerank import FlashrankRerank
+from langchain_community.document_compressors.flashrank_rerank import \
+    FlashrankRerank
 from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_groq import ChatGroq
@@ -24,7 +25,16 @@ def create_llm() -> BaseLanguageModel:
 
 
 def create_embeddings() -> FastEmbedEmbeddings:
-    return FastEmbedEmbeddings(model_name=Config.Model.EMBEDDINGS)
+    if Config.Model.USE_GPU:
+        if Config.Model.APPLE_SILICON:
+            print("Using Apple Silicon")
+            return FastEmbedEmbeddings(model_name=Config.Model.EMBEDDINGS, device="apple_silicon")
+        else:
+            print("Using GPU")
+            return FastEmbedEmbeddings(model_name=Config.Model.EMBEDDINGS, device="cuda")
+    else:
+        print("Using CPU")
+        return FastEmbedEmbeddings(model_name=Config.Model.EMBEDDINGS, device="cpu")
 
 
 def create_reranker() -> FlashrankRerank:
